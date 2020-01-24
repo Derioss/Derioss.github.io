@@ -3,16 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://derioss.github.io/introduction/</loc>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/introduction/install/</loc>
-  </url>
-  
-  <url>
     <loc>https://derioss.github.io/</loc>
-    <priority>0</priority>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/posts/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/section/simple/</loc>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/ansible/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/automatisation/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/posts/ansible/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/deploiement/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/devops/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/</loc>
+    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
   </url>
   
   <url>
@@ -20,7 +55,7 @@
   </url>
   
   <url>
-    <loc>https://derioss.github.io/tags/</loc>
+    <loc>https://derioss.github.io/section/</loc>
   </url>
   
 </urlset>
