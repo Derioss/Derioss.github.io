@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, noarchive" />
+	<title>My blog - Déploiement d&#39;un blog avec Hugo</title>
+	<link rel="icon" href="https://derioss.github.io/favicon.ico" />
+	<meta name="description" content="Ce blog " />
+
+	<meta name="generator" content="Hugo 0.63.1" />
+
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Déploiement d&#39;un blog avec Hugo"/>
+<meta name="twitter:description" content="La décision de création du blog est venu d&rsquo;une volonté de transmettre de la documentation à des confrères.
+J&rsquo;aurais pu leurs envoyer une doc généré par Joplin (alternative open-source à evernote), puis quitte à faire le boulot, pourquoi pas le publier sur la toile, c&rsquo;est pas comme ci je passais mes journées à profiter du savoir librement diffusé par mes confrères sur le web&hellip;
+Comment le diffuser ??
+Je vais faire le site moi-même !"/>
+
+	<meta property="og:title" content="Déploiement d&#39;un blog avec Hugo" />
+<meta property="og:description" content="La décision de création du blog est venu d&rsquo;une volonté de transmettre de la documentation à des confrères.
+J&rsquo;aurais pu leurs envoyer une doc généré par Joplin (alternative open-source à evernote), puis quitte à faire le boulot, pourquoi pas le publier sur la toile, c&rsquo;est pas comme ci je passais mes journées à profiter du savoir librement diffusé par mes confrères sur le web&hellip;
+Comment le diffuser ??
+Je vais faire le site moi-même !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://derioss.github.io/posts/hugo/" />
+<meta property="article:published_time" content="2020-01-25T22:21:42+01:00" />
+<meta property="article:modified_time" content="2020-01-25T22:21:42+01:00" />
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://derioss.github.io/css/bundle.min.css">
+</head>
+<body><header class="header">
+    <div class="header__title">
+        <a href="https://derioss.github.io/" class="header__title__link" alt="Home">
+            
+            My blog
+            
+        </a>
+    </div>
+
+    <nav class="menu" aria-label="menu">
+    <ul class="menu__items" aria-label="menu">
+        
+        
+        <li class="menu__items__item" aria-label="Home">
+            <a href="/" class="menu__items__item__link "
+                alt="Home" role="menuitem">
+                Home
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="blog">
+            <a href="/posts/" class="menu__items__item__link "
+                alt="blog" role="menuitem">
+                blog
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="Contact">
+            <a href="/contact/" class="menu__items__item__link "
+                alt="Contact" role="menuitem">
+                Contact
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+    <nav class="hamburger-menu" aria-label="mobile-menu">
+    <div class="toggle">
+        <input type="checkbox" class="hamburger__toggle" id="hamburgerToggle" name="hamburger toggle" aria-label="Hamburguer menu">
+        <label class="hamburger__toggle__icon" for="hamburgerToggle">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul class="hamburger__items" aria-label="mobile-menu">
+            
+            <li class="hamburger__items__item" aria-label="Home">
+                <a href="/" class="hamburger__items__item__link" alt="Home" role="menuitem">
+                    Home
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="blog">
+                <a href="/posts/" class="hamburger__items__item__link" alt="blog" role="menuitem">
+                    blog
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="Contact">
+                <a href="/contact/" class="hamburger__items__item__link" alt="Contact" role="menuitem">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+</header>
+<article class="post">
+    <header class="post__header">
+        <h1 class="post__title">Déploiement d&#39;un blog avec Hugo</h1>
+        
+        
+        
+        <p class="post__date date">
+            Saturday, Jan, 2020 By Derios.
+        </p>
+        
+        
+    </header>
+
+    
+    <main class="post__body">
+        <p>La décision de création du blog est venu d&rsquo;une volonté de transmettre de la documentation à des confrères.</p>
+<p>J&rsquo;aurais pu leurs envoyer une doc généré par <a href="https://joplinapp.org/">Joplin</a> (alternative open-source à evernote), puis quitte à faire le boulot, pourquoi pas le publier sur la toile, c&rsquo;est pas comme ci je passais mes journées à profiter du savoir librement diffusé par mes confrères sur le web&hellip;</p>
+<p>Comment le diffuser ??</p>
+<p>Je vais faire le site moi-même ! cool, monté en compétence sur Flask, sur du js que j&rsquo;ai utilisé que pour le scrapping, ce qui implique location d&rsquo;un vps.</p>
+<p>Allez c&rsquo;est partit, une bonne Centos, selinux, gestion de droit aux petits oignons, https, un ptit nginx en frontal, monitoring qui dit monitoring dit prometheus et elk.. mmm overkill, vu que je n&rsquo;ai pas l&rsquo;intention à court terme de générer du trafic.</p>
+<p>C&rsquo;est la qu&rsquo;hugo, découvert au sein de mon entreprise intervient.</p>
+<p>Une soirée pour publier un site fonctionnel en comptant le peu de monté en compétence nécessaire et gratuit !</p>
+<h1 id="installation-dhugo">Installation d&rsquo;hugo</h1>
+<p>Plusieurs <a href="https://gohugo.io/getting-started/installing/">choix</a> s&rsquo;offre à nous pour l&rsquo;installation, je vous déconseille juste l&rsquo;install apt fournissant une vieille version d&rsquo;Hugo.</p>
+<p>Je vais aborder ici, l&rsquo;installation sous linux.</p>
+<p>Pour ma part un sous-système ubuntu sous windows (oui je sais..windows mais bon je suis gamer) pas que j&rsquo;adore Ubuntu pour bosser mais pour l&rsquo;instant le choix est plus que limité sous windows.. enfin dans 5 ans, ca sera une distribution linux plus qu&rsquo;a attendre.</p>
+<h2 id="installation-dhugo-server">installation d&rsquo;hugo server</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
+</code></pre></div><h2 id="création-du-site">Création du site</h2>
+<p>On se place donc dans le dossier dans lequel on voudra mettre notre projet.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo new site blog <span style="color:#719e07">&amp;&amp;</span> <span style="color:#b58900">cd</span> blog <span style="color:#586e75">#vous être libre du nom.</span>
+</code></pre></div><p>On choisi notre <a href="https://themes.gohugo.io/">thème</a></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#586e75"># installation du thème choisi</span>
+git submodule add https://github.com/danielkvist/hugo-terrassa-theme.git themes/terrassa
+<span style="color:#b58900">echo</span> <span style="color:#2aa198">&#39;theme = &#34;terrassa&#34;&#39;</span> &gt;&gt; config.toml
+<span style="color:#586e75"># on démarre le site</span>
+hugo server
+</code></pre></div><p>Et c&rsquo;est tout, vous avez maintenant votre site accessible en local!
+<img src="/posts/images/hugo.PNG" alt=""></p>
+<h1 id="déploiement">Déploiement</h1>
+<p>Plusieurs solutions s&rsquo;offre à nous vps, self-hosted, il suffit donc de coller un frontal et de créer un service hugo.</p>
+<p>Mais au vu de la qualité de ma connection et de ma propension à déployer l&rsquo;artillerie lourde pour exposer le moindre port sur le net..</p>
+<p>J&rsquo;ai choisi une solution simple et gratuite dans un premier temps : <a href="https://pages.github.com/">github.io</a></p>
+<p>Pour se faciliter la vie le bon procéder est de créer deux repo :</p>
+<ul>
+<li>un en name.github.io qu&rsquo;on initialise avec README.md, qui contiendra le site.</li>
+<li>un autre qui contiendra notre code.</li>
+</ul>
+<p>Comme vous pouvez le voir sur mes repos <a href="https://github.com/Derioss/Derioss.github.io">site</a>, <a href="https://github.com/Derioss/blog">code</a></p>
+<h2 id="git-de-notre-code">git de notre code</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#586e75"># On se place à la racine de notre site</span>
+git init
+git add .
+git commit -m <span style="color:#2aa198">&#34;first commit&#34;</span>
+git remote add origin &lt;votrerepo&gt;
+git push -u origin master
+</code></pre></div><h2 id="génération-et-publication-de-notre-site-statique">génération et publication de notre site statique</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#586e75"># A la racine de notre site</span>
+rm -rf public
+git submodule add -b master &lt;votrerepo&gt;.github.io.git public
+<span style="color:#586e75"># génération des pages statiques</span>
+hugo
+<span style="color:#586e75"># un ptit commit de notre opération</span>
+git add .
+git commit -m <span style="color:#2aa198">&#34;first commit&#34;</span> --amend
+git push -f
+<span style="color:#b58900">cd</span> &lt;name&gt;.github.io/
+<span style="color:#586e75"># vérification qu&#39;on est bien sur le bon repo git</span>
+git remove -v
+git add .
+git commit -m <span style="color:#2aa198">&#34;first commit&#34;</span>
+git push -f
+<span style="color:#586e75"># voila votre site est publié à https://&lt;name&gt;.github.io/</span>
+</code></pre></div><p>Il nous restera plus qu&rsquo;a créer nos pages dans <code>content</code> en suivant les instructions du thème pour la personnalisation et la structure.</p>
+<p>On peut voir le rendu en local grâce à la commande <code>hugo server</code>, pour publier, il suffira de renouveler l&rsquo;opération avec la commande <code>hugo</code> + commit du code.</p>
+
+    </main>
+    
+
+    
+    <footer class="post__footer">
+        
+<ul class="tags">
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/blog/" class="tag__link" alt="blog.">
+            #blog
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/web/" class="tag__link" alt="web.">
+            #web
+        </a>
+    </li>
+    
+</ul>
+
+
+    </footer>
+    
+</article>
+<footer class="footer">
+    
+    
+    
+
+    
+    <div class="footer__social">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="https://github.com/Derioss" class="footer__social__link" alt="github" target="_blank" aria-label="https://github.com/Derioss" rel="noopener">
+            <span>
+                <i class="fab fa-github"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    
+
+    <address class="footer__contact">
+        
+
+        
+
+        
+
+        
+    </address>
+
+    <div class="copy">
+        
+        <p>© 2020 - My blog</p>
+        
+    </div>
+
+    
+
+
+
+
+<script src="https://derioss.github.io/js/bundle.min.243a483d5297388ef2f4a1b2d5e5d30218e01e8a2dfe213a376ea24d130837c860762a23e9daaa68ae3a7bcd5a3869287a14dc3b738f10486cf4e8fb4291b478.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script
+	defer
+	src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5&#43;&#43;eIfzYmTgBBmXYdhvxPc&#43;XcFEk&#43;zJwDgWbP"
+	crossorigin="anonymous"
+></script>
+
+
+</footer></body>
+
+</html>

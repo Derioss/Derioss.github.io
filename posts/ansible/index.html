@@ -4,19 +4,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow, noarchive" />
-	<title>My blog - basic ansible (work in progress)</title>
+	<title>My blog - basic ansible</title>
 	<link rel="icon" href="https://derioss.github.io/favicon.ico" />
 	<meta name="description" content="Ce blog " />
 
-	<meta name="generator" content="Hugo 0.62.2" />
+	<meta name="generator" content="Hugo 0.63.1" />
 
 	
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="basic ansible (work in progress)"/>
+<meta name="twitter:title" content="basic ansible"/>
 <meta name="twitter:description" content="Première prise en main"/>
 
-	<meta property="og:title" content="basic ansible (work in progress)" />
+	<meta property="og:title" content="basic ansible" />
 <meta property="og:description" content="Première prise en main" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://derioss.github.io/posts/ansible/" />
@@ -106,7 +106,7 @@
 </header>
 <article class="post">
     <header class="post__header">
-        <h1 class="post__title">basic ansible (work in progress)</h1>
+        <h1 class="post__title">basic ansible</h1>
         
         <p class="post__subtitle">Première prise en main</p>
         
@@ -121,21 +121,20 @@
 
     
     <main class="post__body">
-        <p><img src="images/ansible.png" alt="logo ansible">
-<img src="../images/ansible.png" alt=""></p>
+        <p><img src="/posts/images/ansible.png" alt=""></p>
 <p>Les basiques pour monter un projet sous ansible, avec un ensemble de bonne pratique.</p>
-<p>J'aborderais la version non-graphique.</p>
+<p>J&rsquo;aborderais la version non-graphique.</p>
 <h1 id="description">Description</h1>
-<p>Ansible  est un des outils d'automation phare, simple de prise en main et puissant.
+<p>Ansible  est un des outils d&rsquo;automation phare, simple de prise en main et puissant.
 Il existe sous plusieurs formes :</p>
 <ul>
 <li>la version console  <a href="https://docs.ansible.com/ansible/latest/index.html">documentation officielle</a></li>
-<li>La version graphique entreprise <a href="https://www.ansible.com/products/tower">site officel</a></li>
+<li>La version graphique entreprise <a href="https://www.ansible.com/products/tower">site officiel</a></li>
 <li>La version graphique en community edition <a href="https://github.com/ansible/awx">github officiel</a> uniquement sur docker</li>
 </ul>
 <p>La version graphique est principalement apporte une interface de monitoring de vos jobs qui peuvent être &lsquo;schedule&rsquo;, et surtout des profils avec des droits attribuer à ses profils.</p>
 <p>Ce qui peut répondre à des besoins de sécurités, de plus, il y a le support de RedHat..</p>
-<p>L'intégration par exemple aux pipelines se fera par le biais d'API, elle n'apporte pas par-contre, à l'heure ou j'écris cette article, de possibilités d'automatisation plus poussées.</p>
+<p>L&rsquo;intégration par exemple aux pipelines se fera par le biais d&rsquo;API, elle n&rsquo;apporte pas par-contre, à l&rsquo;heure ou j'écris cette article, de possibilités d&rsquo;automatisation plus poussées.</p>
 <p>Pour avoir utilisé les deux, la vitesse de développement des projets est en faveur de la version &lsquo;classique&rsquo;.</p>
 <h1 id="utilisation">Utilisation</h1>
 <h2 id="premier-pas">Premier pas</h2>
@@ -144,7 +143,7 @@ Il existe sous plusieurs formes :</p>
 apt install ansible <span style="color:#586e75"># debian&#39;s distri</span>
 dnf install ansible <span style="color:#586e75"># fedora</span>
 </code></pre></div><h3 id="création-de-notre-premier-playbook">Création de notre premier playbook</h3>
-<p>note: l'hote est une machine linux</p>
+<p>note: l&rsquo;hôte est une machine linux.</p>
 <p><em>A mettre dans le mm répertoire</em> host, playbook.yml</p>
 <p>On commence par créer le fichier <code>host</code>, contenant un ou plusieurs hôtes qui contiendra
 On peut mettre également des vars à ce niveau comme <code>ansible_user</code></p>
@@ -152,20 +151,21 @@ On peut mettre également des vars à ce niveau comme <code>ansible_user</code><
 hostname1|ip ansible_user<span style="color:#719e07">=</span><span style="color:#2aa198">test</span>
 hostname2|ip
 
-</code></pre></div><p>Nous allons afficher un hello world sur l'hote, capturer la stdout afin de l'afficher par ansible</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- hosts: nomdugroupe
-  tasks:
-    - name: echo world
-      shell: echo <span style="color:#2aa198">&#34;world&#34;</span>
-      register: stdout
+</code></pre></div><p>Nous allons afficher un hello world sur l&rsquo;hôte, capturer la stdout afin de l&rsquo;afficher par ansible</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#719e07">hosts</span>: nomdugroupe
+  <span style="color:#719e07">tasks</span>:
+    - <span style="color:#719e07">name</span>: echo world
+      <span style="color:#719e07">shell</span>: echo <span style="color:#2aa198">&#34;world&#34;</span>
+      <span style="color:#719e07">register</span>: stdout
 
-    - name: Display stdout
-      debug:
-        msg: {{ stdout }}
+    - <span style="color:#719e07">name</span>: Display stdout
+      <span style="color:#719e07">debug</span>:
+        <span style="color:#719e07">msg</span>: {{ stdout }}
 </code></pre></div><h1 id="notre-premier-projet">Notre premier projet</h1>
-<p>C'est ici que les choses deviennent vraiment intéressante</p>
-<h2 id="structure-dun-projet">Structure d'un projet</h2>
+<p>C&rsquo;est ici que les choses deviennent vraiment intéressante</p>
+<h2 id="structure-dun-projet">Structure d&rsquo;un projet</h2>
 <p><img src="../images/structure.jpg" alt=""></p>
+<p>(work in progress)</p>
 
     </main>
     
@@ -191,8 +191,8 @@ hostname2|ip
     
     
     <li class="tags__tag">
-        <a href="https://derioss.github.io/tags/deploiement/" class="tag__link" alt="deploiement.">
-            #deploiement
+        <a href="https://derioss.github.io/tags/d%c3%a9ploiement/" class="tag__link" alt="déploiement.">
+            #déploiement
         </a>
     </li>
     

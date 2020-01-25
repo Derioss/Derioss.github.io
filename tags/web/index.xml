@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on My blog</title>
+    <link>https://derioss.github.io/tags/web/</link>
+    <description>Recent content in web on My blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Jan 2020 22:21:42 +0100</lastBuildDate>
+    
+	<atom:link href="https://derioss.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Déploiement d&#39;un blog avec Hugo</title>
+      <link>https://derioss.github.io/posts/hugo/</link>
+      <pubDate>Sat, 25 Jan 2020 22:21:42 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/posts/hugo/</guid>
+      <description>La décision de création du blog est venu d&amp;rsquo;une volonté de transmettre de la documentation à des confrères.
+J&amp;rsquo;aurais pu leurs envoyer une doc généré par Joplin (alternative open-source à evernote), puis quitte à faire le boulot, pourquoi pas le publier sur la toile, c&amp;rsquo;est pas comme ci je passais mes journées à profiter du savoir librement diffusé par mes confrères sur le web&amp;hellip;
+Comment le diffuser ??
+Je vais faire le site moi-même !</description>
+    </item>
+    
+  </channel>
+</rss>

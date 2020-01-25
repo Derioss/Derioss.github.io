@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>blog on My blog</title>
-    <link>https://derioss.github.io/posts/</link>
-    <description>Recent content in blog on My blog</description>
+    <title>déploiement on My blog</title>
+    <link>https://derioss.github.io/tags/d%C3%A9ploiement/</link>
+    <description>Recent content in déploiement on My blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 22:21:42 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 22:21:42 +0100</lastBuildDate>
     
-	<atom:link href="https://derioss.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://derioss.github.io/tags/d%C3%A9ploiement/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Déploiement d&#39;un blog avec Hugo</title>
-      <link>https://derioss.github.io/posts/hugo/</link>
-      <pubDate>Sat, 25 Jan 2020 22:21:42 +0100</pubDate>
-      
-      <guid>https://derioss.github.io/posts/hugo/</guid>
-      <description>La décision de création du blog est venu d&amp;rsquo;une volonté de transmettre de la documentation à des confrères.
-J&amp;rsquo;aurais pu leurs envoyer une doc généré par Joplin (alternative open-source à evernote), puis quitte à faire le boulot, pourquoi pas le publier sur la toile, c&amp;rsquo;est pas comme ci je passais mes journées à profiter du savoir librement diffusé par mes confrères sur le web&amp;hellip;
-Comment le diffuser ??
-Je vais faire le site moi-même !</description>
-    </item>
     
     <item>
       <title>basic ansible</title>

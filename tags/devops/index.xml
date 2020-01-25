@@ -12,15 +12,15 @@
     
     
     <item>
-      <title>basic ansible (work in progress)</title>
+      <title>basic ansible</title>
       <link>https://derioss.github.io/posts/ansible/</link>
       <pubDate>Fri, 24 Jan 2020 22:21:42 +0100</pubDate>
       
       <guid>https://derioss.github.io/posts/ansible/</guid>
       <description>Les basiques pour monter un projet sous ansible, avec un ensemble de bonne pratique.
-J&#39;aborderais la version non-graphique.
-Description Ansible est un des outils d&#39;automation phare, simple de prise en main et puissant. Il existe sous plusieurs formes :
- la version console documentation officielle La version graphique entreprise site officel La version graphique en community edition github officiel uniquement sur docker  La version graphique est principalement apporte une interface de monitoring de vos jobs qui peuvent être &amp;lsquo;schedule&amp;rsquo;, et surtout des profils avec des droits attribuer à ses profils.</description>
+J&amp;rsquo;aborderais la version non-graphique.
+Description Ansible est un des outils d&amp;rsquo;automation phare, simple de prise en main et puissant. Il existe sous plusieurs formes :
+ la version console documentation officielle La version graphique entreprise site officiel La version graphique en community edition github officiel uniquement sur docker  La version graphique est principalement apporte une interface de monitoring de vos jobs qui peuvent être &amp;lsquo;schedule&amp;rsquo;, et surtout des profils avec des droits attribuer à ses profils.</description>
     </item>
     
   </channel>
