@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, noarchive" />
+	<title>Derioss&#39;s blog - Les variables dans ansible</title>
+	<link rel="icon" href="https://derioss.github.io/favicon.ico" />
+	<meta name="description" content="Ce blog " />
+
+	<meta name="generator" content="Hugo 0.63.1" />
+
+	
+	
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-156975006-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Les variables dans ansible"/>
+<meta name="twitter:description" content="Première prise en main"/>
+
+	<meta property="og:title" content="Les variables dans ansible" />
+<meta property="og:description" content="Première prise en main" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://derioss.github.io/posts/ansible_variable/" />
+<meta property="article:published_time" content="2020-01-19T22:21:42+01:00" />
+<meta property="article:modified_time" content="2026-01-24T22:21:42+01:00" />
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://derioss.github.io/css/bundle.min.css">
+</head>
+<body><header class="header">
+    <div class="header__title">
+        <a href="https://derioss.github.io/" class="header__title__link" alt="Home">
+            
+            Derioss&#39;s blog
+            
+        </a>
+    </div>
+    <nav class="menu" aria-label="menu">
+    <ul class="menu__items" aria-label="menu">
+        
+        
+        <li class="menu__items__item" aria-label="Home">
+            <a href="/" class="menu__items__item__link "
+                alt="Home" role="menuitem">
+                Home
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="blog">
+            <a href="/posts/" class="menu__items__item__link "
+                alt="blog" role="menuitem">
+                blog
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="Contact">
+            <a href="/contact/" class="menu__items__item__link "
+                alt="Contact" role="menuitem">
+                Contact
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+    <nav class="hamburger-menu" aria-label="mobile-menu">
+    <div class="toggle">
+        <input type="checkbox" class="hamburger__toggle" id="hamburgerToggle" name="hamburger toggle" aria-label="Hamburguer menu">
+        <label class="hamburger__toggle__icon" for="hamburgerToggle">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul class="hamburger__items" aria-label="mobile-menu">
+            
+            <li class="hamburger__items__item" aria-label="Home">
+                <a href="/" class="hamburger__items__item__link" alt="Home" role="menuitem">
+                    Home
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="blog">
+                <a href="/posts/" class="hamburger__items__item__link" alt="blog" role="menuitem">
+                    blog
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="Contact">
+                <a href="/contact/" class="hamburger__items__item__link" alt="Contact" role="menuitem">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+</header>
+
+<article class="post">
+    <header class="post__header">
+        <h1 class="post__title">Les variables dans ansible</h1>
+        
+        <p class="post__subtitle">Première prise en main</p>
+        
+        
+        
+        <p class="post__date date">
+            Saturday, Jan, 2026 By Derios.
+        </p>
+        
+        
+    </header>
+
+    
+    <main class="post__body">
+        <p><img src="/posts/images/ansible.png" alt="">
+Dans cet article, j&rsquo;aborderais l&rsquo;utilisation des <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html">variables</a> dans ansible.</p>
+<p>Il y a globalement deux méthodes pour utilisé nos variables dans l&rsquo;automatisation :</p>
+<ul>
+<li>utilisé le système de variables de ansible.</li>
+<li>injecté des variables dans l&rsquo;environnement de l&rsquo;hôte.</li>
+</ul>
+<p>On préfèrera l&rsquo;une ou l&rsquo;autre méthode suivant les cas d&rsquo;utilisation.</p>
+<h1 id="les-ansible_facts">Les <code>ansible_facts</code></h1>
+<h2 id="description">Description</h2>
+<p>Il s&rsquo;agit de variables par défaults, des informations sur l&rsquo;hôte qui sont récupérés par ansible.</p>
+<p>Elles peuvent nous fournir diverses informations utiles sur l&rsquo;hôte, réseau, système, comme <code>ansible_distribution</code> qui peut-être utile pour modifier le comportement de son playbook en fonction de la distribution de l&rsquo;hôte.</p>
+<h2 id="bonne-pratique">Bonne pratique</h2>
+<p>La bonne pratique quant on a besoin d&rsquo;une information sur l&rsquo;hôte est de privilégier l&rsquo;utilisation de ces variables plutôt que d'éxecuter une commande comme <code>cat /etc/os-release</code> afin de récupérer la valeur dans une variable.</p>
+<h2 id="activationdésactivation">activation/désactivation</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">hosts</span>: basicansible
+  <span style="color:#719e07">gather_facts</span>: yes <span style="color:#586e75"># or false</span>
+</code></pre></div><h2 id="utilisation">utilisation</h2>
+<p>On continue avec le hello world..</p>
+<p>Dans le même répertoire:</p>
+<ul>
+<li>fichier playbook.yml</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">hosts</span>: basicansible
+  <span style="color:#719e07">gather_facts</span>: yes
+  <span style="color:#719e07">tasks</span>:
+    - <span style="color:#719e07">name</span>: echo hello world
+      <span style="color:#719e07">include_tasks</span>: <span style="color:#2aa198">&#34;echo-{{ ansible_distribution | lower }}.yml&#34;</span> <span style="color:#586e75">#permet d&#39;inclure une task provenant d&#39;un autre playbook.</span>
+    - <span style="color:#719e07">name</span>: display ansible_distribution
+      <span style="color:#719e07">debug</span>:
+        <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;{{ ansible_distribution | lower }}&#34;</span>
+    
+    - <span style="color:#719e07">name</span>: echo hello
+      <span style="color:#719e07">debug</span>:
+        <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;hello&#34;</span>
+      <span style="color:#719e07">when</span>: ( ansible_distribution  == <span style="color:#2aa198">&#34;CentOS&#34;</span>)
+
+    - <span style="color:#719e07">name</span>: echo world
+      <span style="color:#719e07">debug</span>:
+        <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;world&#34;</span>
+      <span style="color:#719e07">when</span>: ( ansible_distribution  == <span style="color:#2aa198">&#34;Debian&#34;</span>)
+</code></pre></div><ul>
+<li>un fichier hosts</li>
+<li>un fichier echo-centos.yml</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">name</span>: echo hello
+  <span style="color:#719e07">shell</span>: echo <span style="color:#2aa198">&#34;hello&#34;</span>
+  <span style="color:#719e07">register</span>: stdout
+
+- <span style="color:#719e07">name</span>: Display stdout
+  <span style="color:#719e07">debug</span>:
+    <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;{{ stdout }}&#34;</span>
+</code></pre></div><ul>
+<li>un fichier echo-debian.yml</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">name</span>: echo world
+  <span style="color:#719e07">shell</span>: echo <span style="color:#2aa198">&#34;world&#34;</span>
+  <span style="color:#719e07">register</span>: stdout
+
+- <span style="color:#719e07">name</span>: Display stdout
+  <span style="color:#719e07">debug</span>:
+    <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;{{ stdout }}&#34;</span>
+</code></pre></div><p>Si on lance le résultat sur un centos.
+<img src="/posts/images/ansible_variable/ansible_fact.PNG" alt=""></p>
+<p>On viens de modifier le comportement d&rsquo;un playbook grâce aux ansible_facts.</p>
+<h1 id="nos-variables-à-nous">Nos variables à nous.</h1>
+<p>Bien entendu nous pouvons utiliser des variables dans nos playbook.</p>
+<h2 id="la-convention-de-nommage">La convention de nommage</h2>
+<p>Le nommage peut se faire avec des chiffres et des lettres, mais doit commencer par des lettres mais l&rsquo;underscore est permis..ouf!</p>
+<p>valid :</p>
+<ul>
+<li>var</li>
+<li>var_var</li>
+<li>var_t0t0</li>
+</ul>
+<p>non_valid:</p>
+<ul>
+<li>var-t0t0</li>
+<li>0var</li>
+</ul>
+<h2 id="la-définition-des-variables">La définition des variables</h2>
+<p>On peut les inclures dans :</p>
+<ul>
+<li>le fichier hosts</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-INI" data-lang="INI"><span style="color:#719e07">[group]</span>
+hostname var<span style="color:#719e07">=</span><span style="color:#2aa198">toto</span>
+</code></pre></div><ul>
+<li>dans les playbooks</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">hosts</span>: group
+  <span style="color:#719e07">vars</span>:
+    <span style="color:#719e07">http_port</span>: <span style="color:#2aa198">80</span>
+</code></pre></div><ul>
+<li>dans un fichiers vars et l&rsquo;inclure dans un playbook.</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#586e75"># vars.yml</span>
+<span style="color:#719e07">vars1</span>: value
+<span style="color:#719e07">vars2</span>: value
+</code></pre></div><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#586e75"># playbook.yml</span>
+- <span style="color:#719e07">hosts</span>: group
+  <span style="color:#719e07">vars_files</span>:
+    - vars.yml
+</code></pre></div><ul>
+<li>dans une task</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">name</span>: echo world
+  <span style="color:#719e07">shell</span>: echo <span style="color:#2aa198">&#34;world&#34;</span>
+  <span style="color:#719e07">register</span>: stdout
+</code></pre></div><ul>
+<li>les utiliser en ligne de commande</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-BASH" data-lang="BASH">ansible-playbook release.yml --extra-vars <span style="color:#2aa198">&#34;version=1.23.45 other_variable=foo&#34;</span>
+</code></pre></div><ul>
+<li>dans les rôle (qui feront l&rsquo;objet d&rsquo;un prochain article)</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#586e75"># fichier playbook.yml</span>
+- <span style="color:#719e07">hosts</span>: group
+  <span style="color:#719e07">vars_files</span>:
+    - vars.yml
+  <span style="color:#719e07">gather_facts</span>: yes
+  <span style="color:#719e07">roles</span>:
+  - {<span style="color:#719e07">role: docker, var: value tags</span>: [always]}
+</code></pre></div><p>Sachant qu&rsquo;il y a un phénomène de surcharge, si la même variable est set à différents niveau, se référer à la <a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html">doc</a></p>
+<h2 id="lutilisation-des-variables">L&rsquo;utilisation des variables</h2>
+<p>Ansible utilise Jinja2 pour les variables, on peut donc les transformer si besoin.</p>
+<p>Elles peuvent s&rsquo;utiliser à tous les niveaux des tasks, dans les templates&hellip;</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">hosts</span>: basicansible
+  <span style="color:#719e07">gather_facts</span>: yes
+  <span style="color:#719e07">vars</span>:
+    <span style="color:#719e07">echo</span>: echo world
+  <span style="color:#719e07">tasks</span>:
+    - <span style="color:#719e07">name</span>: echo <span style="color:#2aa198">&#34;{{ echo world }}&#34;</span>
+      <span style="color:#719e07">include_tasks</span>: <span style="color:#2aa198">&#34;echo-{{ ansible_distribution | lower }}.yml&#34;</span> <span style="color:#586e75"># la syntaxe &#34;{{ var | filters}}&#34; montre l&#39;utilisation d&#39;un filtre jinja2.</span>
+</code></pre></div><h1 id="manipulation-de-lenvironnement-de-lhôte">Manipulation de l&rsquo;environnement de l&rsquo;hôte</h1>
+<p>On peut injecter très facilement avec ansible des variables d&rsquo;environnement dans l&rsquo;hôte, avec le mot clé <code>environment</code> (<a href="https://docs.ansible.com/ansible/latest/user_guide/playbooks_environment.html">doc officielle</a>).</p>
+<p>On peux l&rsquo;utiliser à différents niveau, dans les tasks, au niveau du playbook comme le montre l&rsquo;exemple, dans un block de task.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">hosts</span>: testhost
+
+  <span style="color:#719e07">roles</span>:
+     - php
+     - nginx
+
+  <span style="color:#719e07">environment</span>:
+    <span style="color:#719e07">http_proxy</span>: http://proxy.example.com:<span style="color:#2aa198">8080</span>
+</code></pre></div>
+    </main>
+    
+
+    
+    <footer class="post__footer">
+        
+<ul class="tags">
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/devops/" class="tag__link" alt="devops.">
+            #devops
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/automatisation/" class="tag__link" alt="automatisation.">
+            #automatisation
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/d%c3%a9ploiement/" class="tag__link" alt="déploiement.">
+            #déploiement
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/ansible/" class="tag__link" alt="ansible.">
+            #ansible
+        </a>
+    </li>
+    
+</ul>
+
+
+    </footer>
+    
+</article>
+<footer class="footer">
+    
+    
+    
+
+    
+    <div class="footer__social">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="https://github.com/Derioss" class="footer__social__link" alt="github" target="_blank" aria-label="https://github.com/Derioss" rel="noopener">
+            <span>
+                <i class="fab fa-github"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    
+
+    <address class="footer__contact">
+        
+        <p class="footer__contact__item">
+            <span><i class="far fa-envelope"></i></span>
+            <a href="mailto:deriosblog@gmail.com" class="footer__contact__link" alt="Email">
+                deriosblog@gmail.com
+            </a>
+        </p>
+        
+
+        
+
+        
+
+        
+    </address>
+
+    <div class="copy">
+        
+        <p>© 2020 - Derioss&#39;s blog</p>
+        
+    </div>
+
+    
+
+
+
+
+<script src="https://derioss.github.io/js/bundle.min.243a483d5297388ef2f4a1b2d5e5d30218e01e8a2dfe213a376ea24d130837c860762a23e9daaa68ae3a7bcd5a3869287a14dc3b738f10486cf4e8fb4291b478.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script
+	defer
+	src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5&#43;&#43;eIfzYmTgBBmXYdhvxPc&#43;XcFEk&#43;zJwDgWbP"
+	crossorigin="anonymous"
+></script>
+
+
+</footer></body>
+
+</html>

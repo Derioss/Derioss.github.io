@@ -61,7 +61,6 @@ if (!doNotTrack) {
             
         </a>
     </div>
-
     <nav class="menu" aria-label="menu">
     <ul class="menu__items" aria-label="menu">
         
@@ -120,6 +119,7 @@ if (!doNotTrack) {
     </div>
 </nav>
 </header>
+
 <article class="post">
     <header class="post__header">
         <h1 class="post__title">basic ansible</h1>
@@ -138,7 +138,7 @@ if (!doNotTrack) {
     
     <main class="post__body">
         <p><img src="/posts/images/ansible.png" alt=""></p>
-<p>Les basiques pour monter un projet sous ansible, avec un ensemble de bonne pratique.</p>
+<p>Les basiques pour monter un projet sous ansible.</p>
 <p>J&rsquo;aborderais la version non-graphique.</p>
 <h1 id="description">Description</h1>
 <p>Ansible  est un des outils d&rsquo;automation phare, simple de prise en main et puissant.
@@ -159,7 +159,7 @@ Il existe sous plusieurs formes :</p>
 apt install ansible <span style="color:#586e75"># debian&#39;s distri</span>
 dnf install ansible <span style="color:#586e75"># fedora</span>
 </code></pre></div><h3 id="création-de-notre-premier-playbook">Création de notre premier playbook</h3>
-<p>note: l&rsquo;hôte est une machine linux.</p>
+<p>note: l&rsquo;hôte est une machine linux, un centos7.</p>
 <p><em>A mettre dans le mm répertoire</em> host, playbook.yml</p>
 <p>On commence par créer le fichier <code>host</code>, contenant un ou plusieurs hôtes qui contiendra
 On peut mettre également des vars à ce niveau comme <code>ansible_user</code></p>
@@ -167,7 +167,7 @@ On peut mettre également des vars à ce niveau comme <code>ansible_user</code><
 hostname1|ip ansible_user<span style="color:#719e07">=</span><span style="color:#2aa198">test</span>
 hostname2|ip
 
-</code></pre></div><p>Nous allons afficher un hello world sur l&rsquo;hôte, capturer la stdout afin de l&rsquo;afficher par ansible</p>
+</code></pre></div><p>Nous allons afficher un world sur l&rsquo;hôte, capturer la stdout afin de l&rsquo;afficher par ansible</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#719e07">hosts</span>: nomdugroupe
   <span style="color:#719e07">tasks</span>:
     - <span style="color:#719e07">name</span>: echo world
@@ -176,12 +176,18 @@ hostname2|ip
 
     - <span style="color:#719e07">name</span>: Display stdout
       <span style="color:#719e07">debug</span>:
-        <span style="color:#719e07">msg</span>: {{ stdout }}
-</code></pre></div><h1 id="notre-premier-projet">Notre premier projet</h1>
-<p>C&rsquo;est ici que les choses deviennent vraiment intéressante</p>
-<h2 id="structure-dun-projet">Structure d&rsquo;un projet</h2>
-<p><img src="../images/structure.jpg" alt=""></p>
-<p>(work in progress)</p>
+        <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;{{ stdout }}&#34;</span>
+</code></pre></div><p>On a donc l&rsquo;hôte qui est renseigné et les commandes a effectué, ansible réalisant une connection de type ssh, il nous manquera soit un mot de passe, soit une clé.
+Pour le password, il y a différente manière de lui fournir :</p>
+<ul>
+<li>Avec une variable <code>ansible_ssh_pass=valeur</code>, on peut lui passer en ligne de commande, ou dans les différents fichier de notre projet (j&rsquo;y reviendrai plus tard)</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">--extra-vars <span style="color:#2aa198">&#34;ansible_ssh_pass=valeur&#34;</span>
+<span style="color:#586e75"># on peut également lui demandé en prompt</span>
+--ask-pass
+</code></pre></div><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ansible-playbook -i hosts playbook.yml --ask-pass
+</code></pre></div><p>Ce qui donne le résultat :
+<img src="/posts/images/premier_playbook_resultat.PNG" alt=""></p>
 
     </main>
     
