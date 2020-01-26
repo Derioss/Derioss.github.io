@@ -6,15 +6,27 @@
     <description>Recent content in automatisation on Derioss&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Jan 2026 22:21:42 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jan 2020 22:21:42 +0100</lastBuildDate>
     
 	<atom:link href="https://derioss.github.io/tags/automatisation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>basic ansible</title>
+      <link>https://derioss.github.io/posts/ansible/</link>
+      <pubDate>Sun, 19 Jan 2020 22:21:42 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/posts/ansible/</guid>
+      <description>Une courte introduction à ansible.
+J&amp;rsquo;aborderais la version non-graphique.
+Description Ansible est un des outils d&amp;rsquo;automation phare, simple de prise en main et puissant. Il existe sous plusieurs formes :
+ la version console documentation officielle La version graphique entreprise site officiel La version graphique en community edition github officiel uniquement sur docker  La version graphique apporte une interface de monitoring des jobs qui peuvent être &amp;lsquo;schedule&amp;rsquo;, et surtout des profils utilisateurs.</description>
+    </item>
+    
+    <item>
       <title>Les variables dans ansible</title>
       <link>https://derioss.github.io/posts/ansible_variable/</link>
-      <pubDate>Sat, 24 Jan 2026 22:21:42 +0100</pubDate>
+      <pubDate>Sun, 19 Jan 2020 22:21:42 +0100</pubDate>
       
       <guid>https://derioss.github.io/posts/ansible_variable/</guid>
       <description>Dans cet article, j&amp;rsquo;aborderais l&amp;rsquo;utilisation des variables dans ansible.
@@ -22,18 +34,6 @@ Il y a globalement deux méthodes pour utilisé nos variables dans l&amp;rsquo;a
  utilisé le système de variables de ansible. injecté des variables dans l&amp;rsquo;environnement de l&amp;rsquo;hôte.  On préfèrera l&amp;rsquo;une ou l&amp;rsquo;autre méthode suivant les cas d&amp;rsquo;utilisation.
 Les ansible_facts Description Il s&amp;rsquo;agit de variables par défaults, des informations sur l&amp;rsquo;hôte qui sont récupérés par ansible.
 Elles peuvent nous fournir diverses informations utiles sur l&amp;rsquo;hôte, réseau, système, comme ansible_distribution qui peut-être utile pour modifier le comportement de son playbook en fonction de la distribution de l&amp;rsquo;hôte.</description>
-    </item>
-    
-    <item>
-      <title>basic ansible</title>
-      <link>https://derioss.github.io/posts/ansible/</link>
-      <pubDate>Fri, 24 Jan 2020 22:21:42 +0100</pubDate>
-      
-      <guid>https://derioss.github.io/posts/ansible/</guid>
-      <description>Les basiques pour monter un projet sous ansible.
-J&amp;rsquo;aborderais la version non-graphique.
-Description Ansible est un des outils d&amp;rsquo;automation phare, simple de prise en main et puissant. Il existe sous plusieurs formes :
- la version console documentation officielle La version graphique entreprise site officiel La version graphique en community edition github officiel uniquement sur docker  La version graphique est principalement apporte une interface de monitoring de vos jobs qui peuvent être &amp;lsquo;schedule&amp;rsquo;, et surtout des profils avec des droits attribuer à ses profils.</description>
     </item>
     
   </channel>

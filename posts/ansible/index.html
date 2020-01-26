@@ -30,14 +30,14 @@ if (!doNotTrack) {
 
 	<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="basic ansible"/>
-<meta name="twitter:description" content="Première prise en main"/>
+<meta name="twitter:description" content="Première prise en main d&#39;ansible"/>
 
 	<meta property="og:title" content="basic ansible" />
-<meta property="og:description" content="Première prise en main" />
+<meta property="og:description" content="Première prise en main d&#39;ansible" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://derioss.github.io/posts/ansible/" />
 <meta property="article:published_time" content="2020-01-19T22:21:42+01:00" />
-<meta property="article:modified_time" content="2020-01-24T22:21:42+01:00" />
+<meta property="article:modified_time" content="2020-01-19T22:21:42+01:00" />
 
 
 	
@@ -124,12 +124,12 @@ if (!doNotTrack) {
     <header class="post__header">
         <h1 class="post__title">basic ansible</h1>
         
-        <p class="post__subtitle">Première prise en main</p>
+        <p class="post__subtitle">Première prise en main d&#39;ansible</p>
         
         
         
         <p class="post__date date">
-            Friday, Jan, 2020 By Derios.
+            Sunday, Jan, 2020 By Derios.
         </p>
         
         
@@ -138,7 +138,7 @@ if (!doNotTrack) {
     
     <main class="post__body">
         <p><img src="/posts/images/ansible.png" alt=""></p>
-<p>Les basiques pour monter un projet sous ansible.</p>
+<p>Une courte introduction à ansible.</p>
 <p>J&rsquo;aborderais la version non-graphique.</p>
 <h1 id="description">Description</h1>
 <p>Ansible  est un des outils d&rsquo;automation phare, simple de prise en main et puissant.
@@ -148,9 +148,10 @@ Il existe sous plusieurs formes :</p>
 <li>La version graphique entreprise <a href="https://www.ansible.com/products/tower">site officiel</a></li>
 <li>La version graphique en community edition <a href="https://github.com/ansible/awx">github officiel</a> uniquement sur docker</li>
 </ul>
-<p>La version graphique est principalement apporte une interface de monitoring de vos jobs qui peuvent être &lsquo;schedule&rsquo;, et surtout des profils avec des droits attribuer à ses profils.</p>
-<p>Ce qui peut répondre à des besoins de sécurités, de plus, il y a le support de RedHat..</p>
-<p>L&rsquo;intégration par exemple aux pipelines se fera par le biais d&rsquo;API, elle n&rsquo;apporte pas par-contre, à l&rsquo;heure ou j'écris cette article, de possibilités d&rsquo;automatisation plus poussées.</p>
+<p>La version graphique apporte une interface de monitoring des jobs qui peuvent être &lsquo;schedule&rsquo;, et surtout des profils utilisateurs.</p>
+<p>Ce qui peut répondre à des besoins de sécurité, de travail en équipe avec le support de RedHat.</p>
+<p>Il existe également une API fonctionnelle pour vos pipelines.</p>
+<p>Elle n&rsquo;apporte pas par-contre, à l&rsquo;heure ou j'écris cette article, de possibilités d&rsquo;automatisation plus poussées.</p>
 <p>Pour avoir utilisé les deux, la vitesse de développement des projets est en faveur de la version &lsquo;classique&rsquo;.</p>
 <h1 id="utilisation">Utilisation</h1>
 <h2 id="premier-pas">Premier pas</h2>
@@ -159,15 +160,20 @@ Il existe sous plusieurs formes :</p>
 apt install ansible <span style="color:#586e75"># debian&#39;s distri</span>
 dnf install ansible <span style="color:#586e75"># fedora</span>
 </code></pre></div><h3 id="création-de-notre-premier-playbook">Création de notre premier playbook</h3>
-<p>note: l&rsquo;hôte est une machine linux, un centos7.</p>
-<p><em>A mettre dans le mm répertoire</em> host, playbook.yml</p>
-<p>On commence par créer le fichier <code>host</code>, contenant un ou plusieurs hôtes qui contiendra
-On peut mettre également des vars à ce niveau comme <code>ansible_user</code></p>
+<p>L&rsquo;hôte est une machine linux, un centos7.</p>
+<p>On va commencer par créer deux fichiers :</p>
+<ul>
+<li>hosts contenant un ou plusieurs groupes, qui contient eux-même un ou plusieurs hôtes.</li>
+</ul>
+<p>On peut mettre également des vars à ce niveau comme <code>ansible_user</code>, qui est l&rsquo;identifiant de connection ssh de l&rsquo;hôte.</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-INI" data-lang="INI"><span style="color:#719e07">[nomdugroupe]</span>
 hostname1|ip ansible_user<span style="color:#719e07">=</span><span style="color:#2aa198">test</span>
 hostname2|ip
 
-</code></pre></div><p>Nous allons afficher un world sur l&rsquo;hôte, capturer la stdout afin de l&rsquo;afficher par ansible</p>
+</code></pre></div><ul>
+<li>playbook.yml, qui contiendra les tâches d&rsquo;automatisation.</li>
+</ul>
+<p>Nous allons afficher un world sur l&rsquo;hôte en capturant le stdout dans une variable afin de l&rsquo;afficher dans ansible.</p>
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">- <span style="color:#719e07">hosts</span>: nomdugroupe
   <span style="color:#719e07">tasks</span>:
     - <span style="color:#719e07">name</span>: echo world

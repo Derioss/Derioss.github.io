@@ -4,46 +4,16 @@
   
   <url>
     <loc>https://derioss.github.io/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
+    <lastmod>2020-01-25T22:21:42+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://derioss.github.io/posts/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
+    <lastmod>2020-01-25T22:21:42+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://derioss.github.io/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/ansible/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/automatisation/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/devops/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/d%C3%A9ploiement/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/posts/ansible_variable/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/</loc>
-    <lastmod>2026-01-24T22:21:42+01:00</lastmod>
   </url>
   
   <url>
@@ -57,13 +27,43 @@
   </url>
   
   <url>
+    <loc>https://derioss.github.io/tags/</loc>
+    <lastmod>2020-01-25T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://derioss.github.io/tags/web/</loc>
     <lastmod>2020-01-25T22:21:42+01:00</lastmod>
   </url>
   
   <url>
+    <loc>https://derioss.github.io/tags/ansible/</loc>
+    <lastmod>2020-01-19T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/automatisation/</loc>
+    <lastmod>2020-01-19T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://derioss.github.io/posts/ansible/</loc>
-    <lastmod>2020-01-24T22:21:42+01:00</lastmod>
+    <lastmod>2020-01-19T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/devops/</loc>
+    <lastmod>2020-01-19T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/d%C3%A9ploiement/</loc>
+    <lastmod>2020-01-19T22:21:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/posts/ansible_variable/</loc>
+    <lastmod>2020-01-19T22:21:42+01:00</lastmod>
   </url>
   
   <url>
