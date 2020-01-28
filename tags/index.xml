@@ -6,10 +6,55 @@
     <description>Recent content in Tags on Derioss&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2020 22:21:42 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jan 2020 20:21:20 +0100</lastBuildDate>
     
 	<atom:link href="https://derioss.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ansible</title>
+      <link>https://derioss.github.io/tags/ansible/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>automatisation</title>
+      <link>https://derioss.github.io/tags/automatisation/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/automatisation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://derioss.github.io/tags/devops/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>déploiement</title>
+      <link>https://derioss.github.io/tags/d%C3%A9ploiement/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/d%C3%A9ploiement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sécurité</title>
+      <link>https://derioss.github.io/tags/s%C3%A9curit%C3%A9/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/s%C3%A9curit%C3%A9/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>blog</title>
@@ -26,42 +71,6 @@
       <pubDate>Sat, 25 Jan 2020 22:21:42 +0100</pubDate>
       
       <guid>https://derioss.github.io/tags/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ansible</title>
-      <link>https://derioss.github.io/tags/ansible/</link>
-      <pubDate>Sun, 19 Jan 2020 22:21:42 +0100</pubDate>
-      
-      <guid>https://derioss.github.io/tags/ansible/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>automatisation</title>
-      <link>https://derioss.github.io/tags/automatisation/</link>
-      <pubDate>Sun, 19 Jan 2020 22:21:42 +0100</pubDate>
-      
-      <guid>https://derioss.github.io/tags/automatisation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>devops</title>
-      <link>https://derioss.github.io/tags/devops/</link>
-      <pubDate>Sun, 19 Jan 2020 22:21:42 +0100</pubDate>
-      
-      <guid>https://derioss.github.io/tags/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>déploiement</title>
-      <link>https://derioss.github.io/tags/d%C3%A9ploiement/</link>
-      <pubDate>Sun, 19 Jan 2020 22:21:42 +0100</pubDate>
-      
-      <guid>https://derioss.github.io/tags/d%C3%A9ploiement/</guid>
       <description></description>
     </item>
     
