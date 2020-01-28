@@ -18,7 +18,7 @@
       
       <guid>https://derioss.github.io/posts/ansible_vaul/</guid>
       <description>Aujourd&amp;rsquo;hui je vais vous présenter une fonctionnalité d&amp;rsquo;ansible, Ansible-vault, un mini article donc mais qui à son importance.
-Cette Feature existe dans toutes les versions d&amp;rsquo;Ansible, je suis assez fan, c&amp;rsquo;est simple est efficace.
+Cette Feature existe dans toutes les versions d&amp;rsquo;Ansible, je suis assez fan, c&amp;rsquo;est simple et efficace.
 Elle permet de chiffrer un fichier complet ou une valeur rapidement afin de l&amp;rsquo;utiliser dans nos playbook grâce à un Masterkey. Il peut être contenu dans une variable (demande un ptit tricks) ou dans un fichier comme nous allons le voir plus loin ou même en prompt (mais c&amp;rsquo;est pas très automatisable un prompt&amp;hellip;)</description>
     </item>
     

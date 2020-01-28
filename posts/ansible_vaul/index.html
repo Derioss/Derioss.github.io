@@ -139,7 +139,7 @@ if (!doNotTrack) {
     <main class="post__body">
         <p><img src="/posts/images/ansible.png" alt="">
 Aujourd&rsquo;hui je vais vous présenter une fonctionnalité d&rsquo;ansible, <strong>Ansible-vault</strong>, un mini article donc mais qui à son importance.</p>
-<p>Cette Feature existe dans toutes les versions d&rsquo;Ansible, je suis assez fan, c&rsquo;est simple est efficace.</p>
+<p>Cette Feature existe dans toutes les versions d&rsquo;Ansible, je suis assez fan, c&rsquo;est simple et efficace.</p>
 <p>Elle permet de chiffrer un fichier complet ou une valeur rapidement afin de l&rsquo;utiliser dans nos playbook grâce à un Masterkey.
 Il peut être contenu dans une variable (demande un ptit tricks) ou dans un fichier comme nous allons le voir plus loin ou même en prompt (mais c&rsquo;est pas très automatisable un prompt&hellip;)</p>
 <h1 id="fournir-le-masterkey">Fournir le masterkey.</h1>
@@ -160,7 +160,7 @@ Il peut être contenu dans une variable (demande un ptit tricks) ou dans un fich
 <div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#719e07">build-vault</span>:
   <span style="color:#719e07">stage</span>: vault
   <span style="color:#719e07">script</span>:
-   - echo $ANSIBLE_VAULT_PASSWORD &gt; .vault_password.txt
+   - echo $ANSIBLE_VAULT_PASSWORD &gt; .vault_pass.txt
   <span style="color:#719e07">artifacts</span>:
    <span style="color:#719e07">paths</span>:
    - .vault_password.txt
@@ -184,7 +184,7 @@ Il peut être contenu dans une variable (demande un ptit tricks) ou dans un fich
 </code></pre></div><p>Le résultat avec comme masterkey.. masterkey</p>
 <p><img src="/posts/images/ansible_vault/vault.PNG" alt=""></p>
 <p>On l&rsquo;incorpore par exemple dans un fichier <code>vars.yml</code>.</p>
-<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#719e07">path</span>: /home/exploit
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#719e07">path</span>: <span style="color:#2aa198">&#39;/home/exploit&#39;</span>
 <span style="color:#719e07">var_vault</span>: !vault <span style="color:#2aa198">|
 </span><span style="color:#2aa198">         </span><span style="color:#2aa198"> </span><span style="color:#2aa198">$ANSIBLE_VAULT;1.1;AES256</span>
           <span style="color:#2aa198">66656666663434663231373834613061313136636633323463643965393162656331373639616363</span>
@@ -192,7 +192,7 @@ Il peut être contenu dans une variable (demande un ptit tricks) ou dans un fich
           <span style="color:#2aa198">34653633646536613434323734663135386561353865656137376636363866363663646139653738</span>
           6564343531376361630a313437663462666437393731616463613839383061623638393366363230
           <span style="color:#2aa198">30653165656330303331326261396664623065363737643731613934303862663563</span>
-<span style="color:#719e07">another_vars</span>: value
+<span style="color:#719e07">another_vars</span>: <span style="color:#2aa198">&#39;value&#39;</span>
 </code></pre></div><p>Ainsi à l&rsquo;execution du playbook, on lui précise la masterkey comme on l&rsquo;a abordé plus haut .. et c&rsquo;est tout!</p>
 <h1 id="lire">Lire</h1>
 <h2 id="fichier-1">fichier</h2>
