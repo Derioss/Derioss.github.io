@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gitlab-ci on Derioss&#39;s blog</title>
+    <link>https://derioss.github.io/tags/gitlab-ci/</link>
+    <description>Recent content in gitlab-ci on Derioss&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Jan 2020 20:21:20 +0100</lastBuildDate>
+    
+	<atom:link href="https://derioss.github.io/tags/gitlab-ci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Le YAML: c&#39;est bon mangez en!</title>
+      <link>https://derioss.github.io/posts/le-yaml/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/posts/le-yaml/</guid>
+      <description>C&amp;rsquo;est quoi? Ce n&amp;rsquo;est pas du XML.. on est bien avancé!
+C&amp;rsquo;est une language fait par des humains pour des humains qui fait le taff avec beaucoup de languages de programmation moderne.
+Quand on fait du devops, on manipule du YAML absolument PARTOUT (docker,elasticstack,docker-compose,ansible,prometheus,python,gitlab-ci,k8s,openshift..)
+Rentrons dans le sujet. Le YAML permet nombre de chose .. la bible.
+Je ne vais faire au final que le survoler.
+Mais pour être franc à moins de besoin spécifique, je n&amp;rsquo;ai pas eu le besoin au jour le jour de vraiment pousser jusqu&#39;à la maîtrise.</description>
+    </item>
+    
+  </channel>
+</rss>

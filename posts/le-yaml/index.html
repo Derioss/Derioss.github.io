@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="robots" content="index, follow" />
 	<meta name="googlebot" content="index, follow, noarchive" />
-	<title>Derioss&#39;s blog - sécurité</title>
+	<title>Derioss&#39;s blog - Le YAML: c&#39;est bon mangez en!</title>
 	<link rel="icon" href="https://derioss.github.io/favicon.ico" />
 	<meta name="description" content="Ce blog " />
 
@@ -29,14 +29,15 @@ if (!doNotTrack) {
 	
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="sécurité"/>
-<meta name="twitter:description" content="Ce blog "/>
+<meta name="twitter:title" content="Le YAML: c&#39;est bon mangez en!"/>
+<meta name="twitter:description" content="Les basiques du devops"/>
 
-	<meta property="og:title" content="sécurité" />
-<meta property="og:description" content="Ce blog " />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://derioss.github.io/tags/s%C3%A9curit%C3%A9/" />
-<meta property="og:updated_time" content="2020-01-28T20:21:20+01:00" />
+	<meta property="og:title" content="Le YAML: c&#39;est bon mangez en!" />
+<meta property="og:description" content="Les basiques du devops" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://derioss.github.io/posts/le-yaml/" />
+<meta property="article:published_time" content="2020-01-28T20:21:20+01:00" />
+<meta property="article:modified_time" content="2020-01-28T20:21:20+01:00" />
 
 
 	
@@ -119,27 +120,23 @@ if (!doNotTrack) {
 </nav>
 </header>
 
-<main class="content">
-	
-
-	
-	<article class="card">
-    <header class="card__header">
-        <h1 class="card__header__title">
-            <a href="https://derioss.github.io/posts/le-yaml/" class="card__header__link" alt="Le YAML: c&#39;est bon mangez en!.">
-                Le YAML: c&#39;est bon mangez en!
-            </a>
-        </h1>
+<article class="post">
+    <header class="post__header">
+        <h1 class="post__title">Le YAML: c&#39;est bon mangez en!</h1>
+        
+        <p class="post__subtitle">Les basiques du devops</p>
         
         
-        <p class="card__header__date date">
+        
+        <p class="post__date date">
             Tuesday, Jan, 2020 By Derios.
         </p>
         
         
     </header>
 
-    <main class="card__body">
+    
+    <main class="post__body">
         <h1 id="cest-quoi">C&rsquo;est quoi?</h1>
 <p>Ce n&rsquo;est pas du XML.. on est bien avancé!</p>
 <p>C&rsquo;est une language fait par des humains pour des humains qui fait le taff avec beaucoup de languages de programmation moderne.</p>
@@ -147,10 +144,77 @@ if (!doNotTrack) {
 <h1 id="rentrons-dans-le-sujet">Rentrons dans le sujet.</h1>
 <p>Le YAML permet nombre de chose .. la <a href="https://yaml.org/spec/1.2/spec.html">bible</a>.</p>
 <p>Je ne vais faire au final que le survoler.</p>
-<p>Mais pour être …</p>
-    </main>
+<p>Mais pour être franc à moins de besoin spécifique, je n&rsquo;ai pas eu le besoin au jour le jour de vraiment pousser jusqu'à la maîtrise.</p>
+<h2 id="les-différent-type-de-valeur">Les différent type de valeur</h2>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#719e07">sting</span>: <span style="color:#2aa198">&#39;un&#39;</span>
+<span style="color:#719e07">bolean</span>: <span style="color:#cb4b16">true</span>
+<span style="color:#719e07">bolean</span>: <span style="color:#cb4b16">false</span>
+<span style="color:#719e07">null</span>: <span style="color:#cb4b16">null</span>
+<span style="color:#719e07">int</span>: <span style="color:#2aa198">1</span>
+<span style="color:#719e07">date</span>: 2002-12-14
+</code></pre></div><h2 id="une-liste">Une liste</h2>
+<p>Deux syntaxes.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#719e07">liste</span>: [<span style="color:#2aa198">&#39;un&#39;</span>,<span style="color:#2aa198">&#39;deux&#39;</span>,<span style="color:#2aa198">&#39;trois&#39;</span>]
+<span style="color:#719e07">autre_liste</span>:
+    - <span style="color:#2aa198">1</span>
+    - <span style="color:#2aa198">2</span>
+    - <span style="color:#2aa198">3</span>
+</code></pre></div><h2 id="les-ancres">Les ancres</h2>
+<p><code>*anchor</code> : set la valeur</p>
+<p><code>&lt;&lt;: *anchor</code> : permet d&rsquo;extend</p>
+<h3 id="utilisation-dans-un-pipeline-gitlab">Utilisation dans un pipeline gitlab</h3>
+<p>Ex: dans une pipeline Gitlab (ce qui sert à faire des templates), le <code>.</code> sert à commenter un job pour qu&rsquo;il ne s&rsquo;execute pas.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#586e75"># Mes trois scripts sont strictement équivalent.</span>
+<span style="color:#719e07">.template</span>: <span style="color:#719e07">&amp;template</span>
+  <span style="color:#719e07">stage</span>: test
+  <span style="color:#719e07">script</span>:
+    - <span style="color:#2aa198">|
+</span><span style="color:#2aa198">     </span><span style="color:#2aa198"> </span><span style="color:#2aa198">if [ -n $TEST ]; then</span>
+        echo <span style="color:#2aa198">&#39;hello world&#39;</span>
+      fi
+    - <span style="color:#2aa198">&gt;
+</span><span style="color:#2aa198">     </span><span style="color:#2aa198"> </span><span style="color:#2aa198">if [ -n $TEST ]; then</span>
+        echo <span style="color:#2aa198">&#39;hello world&#39;</span>;
+      fi 
+    -  if [ -n $TEST ]; then echo <span style="color:#2aa198">&#39;hello world&#39;</span>; fi
 
-    <footer class="card__footer">
+<span style="color:#719e07">.template_script</span>: <span style="color:#719e07">&amp;template_script</span>
+    - <span style="color:#2aa198">|
+</span><span style="color:#2aa198">       </span><span style="color:#2aa198"> </span><span style="color:#2aa198">if [ -n $TEST ]; then</span>
+        echo <span style="color:#2aa198">&#39;hello world&#39;</span>
+        fi
+    - <span style="color:#2aa198">&gt;
+</span><span style="color:#2aa198">       </span><span style="color:#2aa198"> </span><span style="color:#2aa198">if [ -n $TEST ]; then</span>
+        echo <span style="color:#2aa198">&#39;hello world&#39;</span>;
+        fi 
+    -  if [ -n $TEST ]; then echo <span style="color:#2aa198">&#39;hello world&#39;</span>; fi
+
+<span style="color:#719e07">job1</span>:
+  <span style="color:#719e07">&lt;&lt;</span>: <span style="color:#719e07">*template</span>
+  <span style="color:#719e07">rules</span>:
+    - if $CI_COMMIT_REF_NAME == <span style="color:#2aa198">&#34;master&#34;</span>
+  <span style="color:#719e07">when</span>: always
+
+<span style="color:#719e07">job2</span>:
+  <span style="color:#719e07">&lt;&lt;</span>: <span style="color:#719e07">*template</span>
+  <span style="color:#719e07">rules</span>:
+    - <span style="color:#719e07">if</span>: $CI_COMMIT_REF_NAME == <span style="color:#2aa198">&#34;master&#34;</span>
+      <span style="color:#719e07">when</span>: manual
+
+<span style="color:#719e07">job3</span>:
+  <span style="color:#719e07">stage</span>: test
+  <span style="color:#719e07">script</span>: <span style="color:#719e07">*template_script</span>
+  <span style="color:#719e07">rules</span>:
+    - <span style="color:#719e07">if</span>: $CI_COMMIT_REF_NAME == <span style="color:#2aa198">&#34;master&#34;</span>
+      <span style="color:#719e07">when</span>: manual
+</code></pre></div><h1 id="conclusion">Conclusion</h1>
+<p>Un article court, mais qui met le pied à l'étrier pour réaliser pipeline, compose file sans trop de duplication de code !</p>
+
+    </main>
+    
+
+    
+    <footer class="post__footer">
         
 <ul class="tags">
     
@@ -207,82 +271,8 @@ if (!doNotTrack) {
 
 
     </footer>
+    
 </article>
-	
-	<article class="card">
-    <header class="card__header">
-        <h1 class="card__header__title">
-            <a href="https://derioss.github.io/posts/ansible_vaul/" class="card__header__link" alt="Ansible: un peu de sécurité avec Ansible vault.">
-                Ansible: un peu de sécurité avec Ansible vault
-            </a>
-        </h1>
-        
-        
-        <p class="card__header__date date">
-            Tuesday, Jan, 2020 By Derios.
-        </p>
-        
-        
-    </header>
-
-    <main class="card__body">
-        <p><img src="/posts/images/ansible.png" alt="">
-Aujourd&rsquo;hui je vais vous présenter une fonctionnalité d&rsquo;ansible, <strong>Ansible-vault</strong>, un mini article donc mais qui à son importance.</p>
-<p>Cette Feature existe dans toutes les versions d&rsquo;Ansible, je suis assez fan, c&rsquo;est simple et efficace.</p>
-<p>Elle permet de chiffrer un fichier complet ou une valeur rapidement afin de l&rsquo;utiliser dans nos playbook grâce à un Masterkey.
-Il peut être contenu dans une variable (demande un ptit tricks) ou dans un fichier comme …</p>
-    </main>
-
-    <footer class="card__footer">
-        
-<ul class="tags">
-    
-    
-    <li class="tags__tag">
-        <a href="https://derioss.github.io/tags/devops/" class="tag__link" alt="devops.">
-            #devops
-        </a>
-    </li>
-    
-    
-    <li class="tags__tag">
-        <a href="https://derioss.github.io/tags/automatisation/" class="tag__link" alt="automatisation.">
-            #automatisation
-        </a>
-    </li>
-    
-    
-    <li class="tags__tag">
-        <a href="https://derioss.github.io/tags/d%c3%a9ploiement/" class="tag__link" alt="déploiement.">
-            #déploiement
-        </a>
-    </li>
-    
-    
-    <li class="tags__tag">
-        <a href="https://derioss.github.io/tags/ansible/" class="tag__link" alt="ansible.">
-            #ansible
-        </a>
-    </li>
-    
-    
-    <li class="tags__tag">
-        <a href="https://derioss.github.io/tags/s%c3%a9curit%c3%a9/" class="tag__link" alt="sécurité.">
-            #sécurité
-        </a>
-    </li>
-    
-</ul>
-
-
-    </footer>
-</article>
-	
-
-	
-
-
-</main>
 <footer class="footer">
     
     

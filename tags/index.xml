@@ -39,11 +39,29 @@
     </item>
     
     <item>
+      <title>docker</title>
+      <link>https://derioss.github.io/tags/docker/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>déploiement</title>
       <link>https://derioss.github.io/tags/d%C3%A9ploiement/</link>
       <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
       
       <guid>https://derioss.github.io/tags/d%C3%A9ploiement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gitlab-ci</title>
+      <link>https://derioss.github.io/tags/gitlab-ci/</link>
+      <pubDate>Tue, 28 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/gitlab-ci/</guid>
       <description></description>
     </item>
     
