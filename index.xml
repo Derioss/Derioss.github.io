@@ -6,10 +6,22 @@
     <description>Recent content in Home on Derioss&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 20:21:20 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 20:21:20 +0100</lastBuildDate>
     
 	<atom:link href="https://derioss.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GOGS, un github version light en auto-hébergement </title>
+      <link>https://derioss.github.io/posts/gogs/</link>
+      <pubDate>Fri, 31 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/posts/gogs/</guid>
+      <description>Présentation de la solution C&amp;rsquo;est une solution light de github, qu&amp;rsquo;on peut utiliser &amp;ldquo;presque&amp;rdquo; partout et rapide.
+De plus, les utilisateurs de github ne seront pas perdu, c&amp;rsquo;est la mm chose avec des fonctionnalitées en moins (pas de ci).
+Enfin, pas de CI&amp;hellip; intégré du moins, il s&amp;rsquo;intègre parfaitement à un jenkins.
+Je l&amp;rsquo;ai utilisé et maintenu un an en production sans avoir eu à me préoccuper de sa maintenance hormis la classque install, configuration, politique de backup et PRA classique.</description>
+    </item>
     
     <item>
       <title>Ansible: un peu de sécurité avec Ansible vault</title>

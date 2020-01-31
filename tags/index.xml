@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Derioss&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 20:21:20 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2020 20:21:20 +0100</lastBuildDate>
     
 	<atom:link href="https://derioss.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>auto-hébergement</title>
+      <link>https://derioss.github.io/tags/auto-h%C3%A9bergement/</link>
+      <pubDate>Fri, 31 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/auto-h%C3%A9bergement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://derioss.github.io/tags/git/</link>
+      <pubDate>Fri, 31 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gogs</title>
+      <link>https://derioss.github.io/tags/gogs/</link>
+      <pubDate>Fri, 31 Jan 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/tags/gogs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ansible</title>

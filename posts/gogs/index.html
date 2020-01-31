@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, noarchive" />
+	<title>Derioss&#39;s blog - GOGS, un github version light en auto-hébergement </title>
+	<link rel="icon" href="https://derioss.github.io/favicon.ico" />
+	<meta name="description" content="Ce blog " />
+
+	<meta name="generator" content="Hugo 0.63.1" />
+
+	
+	
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-156975006-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GOGS, un github version light en auto-hébergement "/>
+<meta name="twitter:description" content="Installation et avantages de cette solution"/>
+
+	<meta property="og:title" content="GOGS, un github version light en auto-hébergement " />
+<meta property="og:description" content="Installation et avantages de cette solution" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://derioss.github.io/posts/gogs/" />
+<meta property="article:published_time" content="2020-01-31T20:21:20+01:00" />
+<meta property="article:modified_time" content="2020-01-31T20:21:20+01:00" />
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://derioss.github.io/css/bundle.min.css">
+</head>
+<body><header class="header">
+    <div class="header__title">
+        <a href="https://derioss.github.io/" class="header__title__link" alt="Home">
+            
+            Derioss&#39;s blog
+            
+        </a>
+    </div>
+    <nav class="menu" aria-label="menu">
+    <ul class="menu__items" aria-label="menu">
+        
+        
+        <li class="menu__items__item" aria-label="Home">
+            <a href="/" class="menu__items__item__link "
+                alt="Home" role="menuitem">
+                Home
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="blog">
+            <a href="/posts/" class="menu__items__item__link "
+                alt="blog" role="menuitem">
+                blog
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="Contact">
+            <a href="/contact/" class="menu__items__item__link "
+                alt="Contact" role="menuitem">
+                Contact
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+    <nav class="hamburger-menu" aria-label="mobile-menu">
+    <div class="toggle">
+        <input type="checkbox" class="hamburger__toggle" id="hamburgerToggle" name="hamburger toggle" aria-label="Hamburguer menu">
+        <label class="hamburger__toggle__icon" for="hamburgerToggle">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul class="hamburger__items" aria-label="mobile-menu">
+            
+            <li class="hamburger__items__item" aria-label="Home">
+                <a href="/" class="hamburger__items__item__link" alt="Home" role="menuitem">
+                    Home
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="blog">
+                <a href="/posts/" class="hamburger__items__item__link" alt="blog" role="menuitem">
+                    blog
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="Contact">
+                <a href="/contact/" class="hamburger__items__item__link" alt="Contact" role="menuitem">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+</header>
+
+<article class="post">
+    <header class="post__header">
+        <h1 class="post__title">GOGS, un github version light en auto-hébergement </h1>
+        
+        <p class="post__subtitle">Installation et avantages de cette solution</p>
+        
+        
+        
+        <p class="post__date date">
+            Friday, Jan, 2020 By Derios.
+        </p>
+        
+        
+    </header>
+
+    
+    <main class="post__body">
+        <h1 id="présentation-de-la-solution">Présentation de la solution</h1>
+<p>C&rsquo;est  une solution light de github, qu&rsquo;on peut utiliser &ldquo;presque&rdquo; partout et rapide.</p>
+<p>De plus, les utilisateurs de github ne seront pas perdu, c&rsquo;est la mm chose avec des fonctionnalitées en moins (pas de ci).</p>
+<p>Enfin, pas de CI&hellip; intégré du moins, il s&rsquo;intègre parfaitement à un jenkins.</p>
+<p>Je l&rsquo;ai utilisé et maintenu un an en production sans avoir eu à me préoccuper de sa maintenance hormis la classque install, configuration, politique de backup et PRA classique.</p>
+<h2 id="compatibilité">Compatibilité</h2>
+<p>Version 0.11.91@2019-08-11</p>
+<ul>
+<li>linux : 386, amd64, arm</li>
+<li>windows : 386, amd64</li>
+<li>macOS : amd64</li>
+</ul>
+<h1 id="installation">Installation</h1>
+<h2 id="prérequis">Prérequis</h2>
+<p>J&rsquo;ai choisi comme frontal apache 2.4 (pour changer un peu) mais il y a bien d&rsquo;autres solutions (notamment Nginx, traefik, istio,envoy suivant l&rsquo;infrastructure).</p>
+<p>Une distribution linux, en l&rsquo;occurence une vm CentOs 7.</p>
+<p>Gogs prend en charge de nombreuses base de données.</p>
+<h2 id="linstall">l&rsquo;install</h2>
+<h3 id="création-dun-utilisateur">Création d&rsquo;un utilisateur.</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">su - root
+useradd -m -s /bin/bash git <span style="color:#586e75"># ajout de l utilisateur</span>
+passwd git <span style="color:#586e75"># création du mot de passe</span>
+</code></pre></div><p>Pour les mots de passes, par expérience on évite les caractères spéciaux, l&rsquo;idéal étant de passer par un utilitaire de type keepass et de générer du 128 voir 256 bit pour la prod.</p>
+<h3 id="téléchargement-de-gogs">Téléchargement de gogs</h3>
+<p><a href="https://gogs.io/docs/installation/install_from_binary">librairie officielle</a></p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">cd</span> /home/git
+yum install wget unzip vim
+wget https://dl.gogs.io/0.11.91/gogs_0.11.91_linux_amd64.zip <span style="color:#719e07">&amp;&amp;</span> chown git: gogs_0.11.91_linux_amd64.zip
+su - git
+unzip gogs_0.11.91_linux_amd64.zip <span style="color:#719e07">&amp;&amp;</span> rm gogs_0.11.91_linux_amd64.zip
+<span style="color:#b58900">cd</span> gogs
+</code></pre></div><h3 id="on-monte-le-service">On monte le service</h3>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">su - root
+cp /home/git/gogs/scripts/systemd/gogs.service /lib/systemd/system
+cat /lib/systemd/system/gogs.service <span style="color:#586e75"># on voit que le path de ExecStart n&#39;est pas le bon</span>
+vim /lib/systemd/system/gogs.service
+</code></pre></div><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-BASH" data-lang="BASH"><span style="color:#586e75"># Dans mon cas je remplace ExecStart</span>
+<span style="color:#268bd2">WorkingDirectory</span><span style="color:#719e07">=</span>/home/git/gogs
+<span style="color:#268bd2">ExecStart</span><span style="color:#719e07">=</span>/home/git/gogs web
+<span style="color:#268bd2">Restart</span><span style="color:#719e07">=</span>always
+</code></pre></div><div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl start gogs
+systemctl <span style="color:#b58900">enable</span> gogs
+systemctl status gogs
+</code></pre></div><p>On voit bien qu&rsquo;il tourne sur du http://0.0.0.0:3000.</p>
+<p>Plusieurs choix s&rsquo;offre à nous pour diffuser le service&hellip;. bref on lui colle un frontal.</p>
+<h3 id="donc-le-frontal">Donc le frontal</h3>
+<h4 id="installation-1">Installation</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#586e75"># AH oui</span>
+yum update
+<span style="color:#586e75"># Voila c&#39;est mieux</span>
+yum install httpd  mod_ssl <span style="color:#586e75">#serveur apache et son module qui implémente le ssl</span>
+</code></pre></div><h4 id="configuration">Configuration</h4>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-BASH" data-lang="BASH">vim /etc/httpd/conf.d/gogs.conf
+</code></pre></div><p>Le server name est le  FQDN auquel répond votre virtualhost. (<a href="https://httpd.apache.org/docs/2.4/fr/vhosts/examples.html">doc officielle</a>)</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML"> <span style="color:#268bd2">&lt;VirtualHost</span> *:80<span style="color:#268bd2">&gt;</span>
+    ServerName www.gogs.local
+    RewriteEngine on
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,QSA,R=permanent]
+<span style="color:#268bd2">&lt;/VirtualHost&gt;</span>
+
+
+
+<span style="color:#268bd2">&lt;VirtualHost</span> *:443<span style="color:#268bd2">&gt;</span>
+        ServerName www.gogs.local
+        ProxyPass / http://localhost:3000/
+        ProxyPassReverse / http://localhost:3000/
+        SSLEngine on
+        SSLCertificateFile /etc/pki/tls/private/apache-selfsigned.crt
+        SSLCertificateKeyFile /etc/pki/tls/private/apache-selfsigned.key
+
+<span style="color:#268bd2">&lt;/VirtualHost&gt;</span>
+</code></pre></div><h5 id="génération-des-certificats">Génération des certificats.</h5>
+<p>Ici je génère une paire de certificat auto-signé.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-BASH" data-lang="BASH">openssl req -x509 -nodes -days <span style="color:#2aa198">365</span> -newkey rsa:2048 -keyout /etc/pki/tls/private/apache-selfsigned.key -out /etc/pki/tls/private/apache-selfsigned.crt
+</code></pre></div><p>Vérification de la configuration</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apachectl configtest
+</code></pre></div><p>Démarrage du serveur</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl <span style="color:#b58900">enable</span> httpd
+ystemctl start httpd
+systemctl status httpd
+</code></pre></div><p>Si comme moi vous être dans un lab sans DNS (bind9 voir pfsense..).</p>
+<p>A réaliser sur le client (en l&rsquo;occurence un linux)</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim /etc/hosts
+</code></pre></div><p>Sur windows, on ouvre un notepad++(ou autre) en tant qu&rsquo;administrateur
+voici le path <code>C:\windows\system32\drivers\etc\hosts</code></p>
+<p>et on rajoute cette ligne, qui nous permettra de résoudre.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">192.168.1.106 www.gogs.local
+ping www.gogs.local <span style="color:#586e75"># on vérifie qu&#39;on résoud bien</span>
+</code></pre></div><h5 id="ouverture-des-ports-sur-la-vm">Ouverture des ports sur la vm</h5>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">firewall-cmd --zone<span style="color:#719e07">=</span>public --add-port<span style="color:#719e07">=</span>80/tcp --permanent
+firewall-cmd --zone<span style="color:#719e07">=</span>public --add-port<span style="color:#719e07">=</span>443/tcp --permanent
+firewall-cmd --reload
+</code></pre></div><p>Et voila
+<img src="/posts/images/gogs_install/gogs.PNG" alt=""></p>
+<p>Il nous reste plus qu&rsquo;a configurer les différents éléments et vous aurez un git auto-héberger.</p>
+<p>Si jamais vous être peu et/ou des petits projet, sur ce gogs à un sqllite fait largement le boulot.</p>
+<h1 id="dépannage">Dépannage</h1>
+<p>En cas de souci, les logs (par défault) sont ici.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">tail -f /var/log/httpd/* <span style="color:#586e75"># en stream</span>
+</code></pre></div><p>Moyen rapide de déterminer si un service écoute</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yum install net-tools
+netstat -netpul | grep httpd <span style="color:#586e75"># permet de voir si le serveur httpd écoute sur le 443/80, si aucune sortie c&#39;est qu&#39;en effet non..</span>
+</code></pre></div><p>Moyen rapide (en tcp) de déterminer si le service est atteignable sur le port (bien évidemment, il faut d&rsquo;abord voir si il est en écoute)</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#586e75"># A partie du client donc</span>
+telnet hostname|ip <span style="color:#2aa198">80</span>
+telnet hostname|ip <span style="color:#2aa198">443</span>
+</code></pre></div>
+    </main>
+    
+
+    
+    <footer class="post__footer">
+        
+<ul class="tags">
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/gogs/" class="tag__link" alt="gogs.">
+            #gogs
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/git/" class="tag__link" alt="git.">
+            #git
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/auto-h%c3%a9bergement/" class="tag__link" alt="auto-hébergement.">
+            #auto-hébergement
+        </a>
+    </li>
+    
+</ul>
+
+
+    </footer>
+    
+</article>
+<footer class="footer">
+    
+    
+    
+
+    
+    <div class="footer__social">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="https://github.com/Derioss" class="footer__social__link" alt="github" target="_blank" aria-label="https://github.com/Derioss" rel="noopener">
+            <span>
+                <i class="fab fa-github"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    
+
+    <address class="footer__contact">
+        
+        <p class="footer__contact__item">
+            <span><i class="far fa-envelope"></i></span>
+            <a href="mailto:deriosblog@gmail.com" class="footer__contact__link" alt="Email">
+                deriosblog@gmail.com
+            </a>
+        </p>
+        
+
+        
+
+        
+
+        
+    </address>
+
+    <div class="copy">
+        
+        <p>© 2020 - Derioss&#39;s blog</p>
+        
+    </div>
+
+    
+
+
+
+
+<script src="https://derioss.github.io/js/bundle.min.243a483d5297388ef2f4a1b2d5e5d30218e01e8a2dfe213a376ea24d130837c860762a23e9daaa68ae3a7bcd5a3869287a14dc3b738f10486cf4e8fb4291b478.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script
+	defer
+	src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5&#43;&#43;eIfzYmTgBBmXYdhvxPc&#43;XcFEk&#43;zJwDgWbP"
+	crossorigin="anonymous"
+></script>
+
+
+</footer></body>
+
+</html>
