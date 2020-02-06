@@ -4,16 +4,46 @@
   
   <url>
     <loc>https://derioss.github.io/</loc>
-    <lastmod>2020-01-31T20:21:20+01:00</lastmod>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://derioss.github.io/posts/</loc>
-    <lastmod>2020-01-31T20:21:20+01:00</lastmod>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://derioss.github.io/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/ansible/</loc>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/automatisation/</loc>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/posts/yaml_outil/</loc>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/devops/</loc>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/gitlab/</loc>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://derioss.github.io/tags/</loc>
+    <lastmod>2020-02-06T19:20:42+01:00</lastmod>
   </url>
   
   <url>
@@ -37,27 +67,7 @@
   </url>
   
   <url>
-    <loc>https://derioss.github.io/tags/</loc>
-    <lastmod>2020-01-31T20:21:20+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/ansible/</loc>
-    <lastmod>2020-01-28T20:21:20+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://derioss.github.io/posts/ansible_vaul/</loc>
-    <lastmod>2020-01-28T20:21:20+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/automatisation/</loc>
-    <lastmod>2020-01-28T20:21:20+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://derioss.github.io/tags/devops/</loc>
     <lastmod>2020-01-28T20:21:20+01:00</lastmod>
   </url>
   

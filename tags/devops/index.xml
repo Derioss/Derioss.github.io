@@ -6,10 +6,21 @@
     <description>Recent content in devops on Derioss&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jan 2020 20:21:20 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 19:20:42 +0100</lastBuildDate>
     
 	<atom:link href="https://derioss.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Des petits outils sur le YAML</title>
+      <link>https://derioss.github.io/posts/yaml_outil/</link>
+      <pubDate>Thu, 06 Feb 2020 19:20:42 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/posts/yaml_outil/</guid>
+      <description>Un petit article pour vous présenter deux outils pour des pipelines plus lisible et plus propre :
+ une extension de vscode, gitlabworkflow yamllint  Yamllint C&amp;rsquo;est un linter pour yaml, c&amp;rsquo;est donc un outil d&amp;rsquo;analyse statique de code qui sert en l&amp;rsquo;occurence essentiellement pour des problèmes de styles.
+C&amp;rsquo;est rapide en mettre en place, à utiliser et permet à vos confrères et à vous mêmes d&amp;rsquo;avoir une meilleur lisibilité, c&amp;rsquo;est donc indispensable.</description>
+    </item>
     
     <item>
       <title>Ansible: un peu de sécurité avec Ansible vault</title>

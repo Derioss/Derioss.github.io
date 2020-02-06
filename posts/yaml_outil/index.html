@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="robots" content="index, follow" />
+	<meta name="googlebot" content="index, follow, noarchive" />
+	<title>Derioss&#39;s blog - Des petits outils sur le YAML</title>
+	<link rel="icon" href="https://derioss.github.io/favicon.ico" />
+	<meta name="description" content="Ce blog " />
+
+	<meta name="generator" content="Hugo 0.63.1" />
+
+	
+	
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-156975006-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Des petits outils sur le YAML"/>
+<meta name="twitter:description" content="Présentation de yamllint et gitlabworkflow"/>
+
+	<meta property="og:title" content="Des petits outils sur le YAML" />
+<meta property="og:description" content="Présentation de yamllint et gitlabworkflow" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://derioss.github.io/posts/yaml_outil/" />
+<meta property="article:published_time" content="2020-02-06T19:20:42+01:00" />
+<meta property="article:modified_time" content="2020-02-06T19:20:42+01:00" />
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://derioss.github.io/css/bundle.min.css">
+</head>
+<body><header class="header">
+    <div class="header__title">
+        <a href="https://derioss.github.io/" class="header__title__link" alt="Home">
+            
+            Derioss&#39;s blog
+            
+        </a>
+    </div>
+    <nav class="menu" aria-label="menu">
+    <ul class="menu__items" aria-label="menu">
+        
+        
+        <li class="menu__items__item" aria-label="Home">
+            <a href="/" class="menu__items__item__link "
+                alt="Home" role="menuitem">
+                Home
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="blog">
+            <a href="/posts/" class="menu__items__item__link "
+                alt="blog" role="menuitem">
+                blog
+            </a>
+        </li>
+        
+        <li class="menu__items__item" aria-label="Contact">
+            <a href="/contact/" class="menu__items__item__link "
+                alt="Contact" role="menuitem">
+                Contact
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+    <nav class="hamburger-menu" aria-label="mobile-menu">
+    <div class="toggle">
+        <input type="checkbox" class="hamburger__toggle" id="hamburgerToggle" name="hamburger toggle" aria-label="Hamburguer menu">
+        <label class="hamburger__toggle__icon" for="hamburgerToggle">
+            <i class="fas fa-bars"></i>
+        </label>
+
+        <ul class="hamburger__items" aria-label="mobile-menu">
+            
+            <li class="hamburger__items__item" aria-label="Home">
+                <a href="/" class="hamburger__items__item__link" alt="Home" role="menuitem">
+                    Home
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="blog">
+                <a href="/posts/" class="hamburger__items__item__link" alt="blog" role="menuitem">
+                    blog
+                </a>
+            </li>
+            
+            <li class="hamburger__items__item" aria-label="Contact">
+                <a href="/contact/" class="hamburger__items__item__link" alt="Contact" role="menuitem">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>
+</header>
+
+<article class="post">
+    <header class="post__header">
+        <h1 class="post__title">Des petits outils sur le YAML</h1>
+        
+        <p class="post__subtitle">Présentation de yamllint et gitlabworkflow</p>
+        
+        
+        
+        <p class="post__date date">
+            Thursday, Feb, 2020 By Derios.
+        </p>
+        
+        
+    </header>
+
+    
+    <main class="post__body">
+        <p>Un petit article pour vous présenter deux outils pour des pipelines plus lisible et plus propre :</p>
+<ul>
+<li>une extension de vscode, gitlabworkflow</li>
+<li>yamllint</li>
+</ul>
+<h1 id="yamllint">Yamllint</h1>
+<p>C&rsquo;est un linter pour yaml, c&rsquo;est donc un outil d&rsquo;analyse statique de code qui sert en l&rsquo;occurence essentiellement pour des problèmes de styles.</p>
+<p>C&rsquo;est rapide en mettre en place, à utiliser et permet à vos confrères et à vous mêmes d&rsquo;avoir une meilleur lisibilité, c&rsquo;est donc indispensable.</p>
+<h2 id="installation">Installation</h2>
+<p>Il existe sur la majorité des distribution linux, peut être intégré facilement dans un pipeline (donc).</p>
+<p>Sur debian :</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install yamllint
+</code></pre></div><p>Et c&rsquo;est tout..</p>
+<h2 id="utilisation">Utilisation</h2>
+<p>Pour exemple, je vais l&rsquo;utiliser sur mes codes présenté sur blog.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">- <span style="color:#719e07">hosts</span>: basicansible
+  <span style="color:#719e07">gather_facts</span>: yes
+  <span style="color:#719e07">tasks</span>:
+    - <span style="color:#719e07">name</span>: echo hello world
+      <span style="color:#719e07">include_tasks</span>: <span style="color:#2aa198">&#34;echo-{{ ansible_distribution | lower }}.yml&#34;</span>
+    - <span style="color:#719e07">name</span>: display ansible_distribution
+      <span style="color:#719e07">debug</span>:
+        <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;{{ ansible_distribution | lower }}&#34;</span>    
+    - <span style="color:#719e07">name</span>: echo hello
+      <span style="color:#719e07">debug</span>:
+        <span style="color:#719e07">msg</span>: <span style="color:#2aa198">&#34;hello&#34;</span>
+      <span style="color:#719e07">when</span>: ( ansible_distribution  == <span style="color:#2aa198">&#34;CentOS&#34;</span>)
+
+</code></pre></div><p>Voici le résultat</p>
+<p><img src="/posts/images/yaml_outil.md/yamllint.PNG" alt=""></p>
+<p>Il nous indique donc de manière très simple ou se situe les erreurs de style.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Comme tout linter, vous pouvez aisément le configurer.</p>
+<p>Pour ma part, j&rsquo;enlève le warning de document start et le line-lenght.</p>
+<p>On créer donc le yaml suivant par ex dans <code>/etc/yamllint/yaml_conf.yaml</code>.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#719e07">extends</span>: default
+<span style="color:#719e07">rules</span>:
+  <span style="color:#719e07">line-lenght</span>: disable
+  <span style="color:#719e07">document-start</span>: disable
+</code></pre></div><p>Pour l&rsquo;utiliser</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yamllint -d /etc/yamllint/yaml_conf.yaml &lt;filename&gt;
+</code></pre></div><p>Bon c&rsquo;est un peu long, un alias vite&hellip;!</p>
+<p>Donc on va le mettre dans le <code>.bash_aliases</code>, si il n&rsquo;est pas présent..</p>
+<p>Ce n&rsquo;est pas grave, on va le créer.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.bashrc
+</code></pre></div><p>La ligne à rajouter</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#719e07">if</span> <span style="color:#719e07">[</span> -f ~/.bash_aliases <span style="color:#719e07">]</span>; <span style="color:#719e07">then</span>
+    . ~/.bash_aliases
+<span style="color:#719e07">fi</span>
+</code></pre></div><p>On créer notre alias.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.bash_aliases
+</code></pre></div><p>la ligne à rajouter</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">alias</span> <span style="color:#268bd2">yl</span><span style="color:#719e07">=</span><span style="color:#2aa198">&#39;yamllint -d /etc/yamllint/yaml_conf.yaml&#39;</span>
+</code></pre></div><p>On l&rsquo;active avec cette commande ou on relog au choix.</p>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b58900">source</span>  ~/.bash_aliases
+</code></pre></div><p><img src="/posts/images/yaml_outil.md/yamllint2.PNG" alt=""></p>
+<p>Voila c&rsquo;est déja beaucoup mieux, comme vous pouvez le constater la configuration est bien prise en compte.</p>
+<h2 id="lextension-de-visualcode-gitlabworkflow">L&rsquo;extension de visualcode gitlabworkflow.</h2>
+<p>Bon un jour on m&rsquo;a dit qu&rsquo;un bon adminsys, est fainéant.</p>
+<p>Vu que je vis pour automatiser tout ce qui bouge.. je suppose que si l&rsquo;adminsys est le rois des fainéant, moi en qualité de devops je suis le pape.</p>
+<p>Alors, vous allez me dire.. ou il veut en venir..</p>
+<p>En gros, j&rsquo;ai découvert cet extension que ce soir, oui que ce soir.. c&rsquo;est fatiguant de parcourir le web.</p>
+<p>Ce qui est génial avec cet outil c&rsquo;est que :</p>
+<ul>
+<li>j&rsquo;ai besoin de faire un clic de moins sur mon navigateur pour contrôler mes issues, mes pipelines..</li>
+<li>pas besoin de passer par le linter web pour voir si mon code ne vas pas me pourrir un commit (car critical error).
+Ce qui va m&rsquo;obliger derrière à faire un :</li>
+</ul>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git commit -a -m <span style="color:#2aa198">&#39;entrer votre message de commit&#39;</span> --amend  <span style="color:#719e07">&amp;&amp;</span> git push --force
+</code></pre></div><p>Fatiguant tout ca !</p>
+<p>Et encore plus fatiguant, de monter un gitlab sur une vm, monter un pipeline pour vous montrer comment utiliser et configurer cet outil !</p>
+<p>Alors qu&rsquo; <a href="https://marketplace.visualstudio.com/items?itemName=fatihacet.gitlab-workflow">ici</a> tout est très bien expliqué!</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Et comme on est très faineant, autant mettre ce genre de config dans un pipeline de déploiement client comme ca.. ben.. uniformisation des postes clients destinés au devops.</p>
+<p>Et cela permet de boire son café en cas de reception d&rsquo;un nouveau ordi.. en supervisant le déploiement de votre client par un projet ansible!</p>
+
+    </main>
+    
+
+    
+    <footer class="post__footer">
+        
+<ul class="tags">
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/devops/" class="tag__link" alt="devops.">
+            #devops
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/automatisation/" class="tag__link" alt="automatisation.">
+            #automatisation
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/gitlab/" class="tag__link" alt="gitlab.">
+            #gitlab
+        </a>
+    </li>
+    
+    
+    <li class="tags__tag">
+        <a href="https://derioss.github.io/tags/ansible/" class="tag__link" alt="ansible.">
+            #ansible
+        </a>
+    </li>
+    
+</ul>
+
+
+    </footer>
+    
+</article>
+<footer class="footer">
+    
+    
+    
+
+    
+    <div class="footer__social">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a href="https://github.com/Derioss" class="footer__social__link" alt="github" target="_blank" aria-label="https://github.com/Derioss" rel="noopener">
+            <span>
+                <i class="fab fa-github"></i>
+            </span>
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    
+
+    <address class="footer__contact">
+        
+        <p class="footer__contact__item">
+            <span><i class="far fa-envelope"></i></span>
+            <a href="mailto:deriosblog@gmail.com" class="footer__contact__link" alt="Email">
+                deriosblog@gmail.com
+            </a>
+        </p>
+        
+
+        
+
+        
+
+        
+    </address>
+
+    <div class="copy">
+        
+        <p>© 2020 - Derioss&#39;s blog</p>
+        
+    </div>
+
+    
+
+
+
+
+<script src="https://derioss.github.io/js/bundle.min.243a483d5297388ef2f4a1b2d5e5d30218e01e8a2dfe213a376ea24d130837c860762a23e9daaa68ae3a7bcd5a3869287a14dc3b738f10486cf4e8fb4291b478.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script
+	defer
+	src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+    integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5&#43;&#43;eIfzYmTgBBmXYdhvxPc&#43;XcFEk&#43;zJwDgWbP"
+	crossorigin="anonymous"
+></script>
+
+
+</footer></body>
+
+</html>
