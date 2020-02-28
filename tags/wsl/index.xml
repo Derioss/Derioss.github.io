@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>wsl on Derioss&#39;s blog</title>
+    <link>https://derioss.github.io/tags/wsl/</link>
+    <description>Recent content in wsl on Derioss&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Feb 2020 20:21:20 +0100</lastBuildDate>
+    
+	<atom:link href="https://derioss.github.io/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Comment j&#39;ai vendu mon âme pour profiter des dernières fonctionnalitées windows</title>
+      <link>https://derioss.github.io/posts/windows_insiders/</link>
+      <pubDate>Fri, 28 Feb 2020 20:21:20 +0100</pubDate>
+      
+      <guid>https://derioss.github.io/posts/windows_insiders/</guid>
+      <description>Tout à commencé quant j&amp;rsquo;ai voulu installer docker sur mon wsl (sous-système linux sur windows)&amp;hellip;
+Alors oui, je bosse QUE sur linux mais j&amp;rsquo;en ai marre des VM, j&amp;rsquo;ai la flemme de faire un double boot pour installer un Fedora|debian|centos8.
+Bref, j&amp;rsquo;ai voulu installer docker pour faire un article sur comment installer unbound et nsd sur docker avec ansible.
+De la je suis tombé sur WSL2.
+WSL2 c&amp;rsquo;est quoi ? ben c&amp;rsquo;est plus mieux tout simplement.</description>
+    </item>
+    
+  </channel>
+</rss>
